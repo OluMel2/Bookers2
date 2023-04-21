@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style type="text/css">
+    .turbolinks-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+    </style>
     <script src="https://kit.fontawesome.com/25ec70538f.js" crossorigin="anonymous"></script>
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
@@ -13,43 +26,45 @@
 
   <body>
     <header>
-      <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
-        
-        <a class = "navbar-brand" href = "https://da2bc839e85c479d9c8818fec4735534.vfs.cloud9.ap-northeast-1.amazonaws.com/" >
-          <span>Bookers2</span>
-        </a>
+      <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class= "container">
+          <a class = "navbar-brand" href = "/" >
+          <span>Bookers</span>
+         </a>
 
-    <% if user_signed_in? %>
+         <div class = "container">
+           <% if user_signed_in? %>
 
-      <i class="fas fa-home" style="color: #ffffff;">
-      <%= link_to 'Home', user_path(current_user.id) %>
-      </i>
+         <a class = "nav-link text-light" href = "/">
+          <i class = "fas fa-home">
+           </i>
+         </a>
 
-      <i class="fas fa-users" style="color: #ffffff;">
-        <%= link_to 'User', users_path %>
-      </i>
-      <i class="fas fa-book-open" style="color: #ffffff;">
-        <%= link_to 'Books', books_path %>
-      </i>
-      <i class="fas fa-sign-out-alt" style="color: #ffffff;">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </i>
-    <% else %>
-      <i class="fas fa-home" style="color: #ffffff;">
-        <%= link_to 'Home', root_path %>
-      </i>
-      <i class="fas fa-link" style="color: #ffffff;">
-        <%= link_to 'About', about_path %>
-      </i>
-      <i class="fas fa-user-plus" style="color: #ffffff;">
-        <%= link_to "Sing up", new_user_registration_path %>
-      </i>
-      <i class="fas fa-sign-in-alt" style="color: #ffffff;">
-        <%= link_to "Log in", new_user_session_path %>
-      </i>
-    <% end %>
+         <i class="fas fa-users" style="color: #ffffff;">
+          <%= link_to 'User', users_path %>
+         </i>
+         <i class="fas fa-book-open" style="color: #ffffff;">
+          <%= link_to 'Books', books_path %>
+         </i>
+         <i class="fas fa-sign-out-alt" style="color: #ffffff;">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+         </i>
+         <% else %>
+         <i class="fas fa-home" style="color: #ffffff;">
+          <%= link_to 'Home', root_path %>
+         </i>
+         <i class="fas fa-link" style="color: #ffffff;">
+          <%= link_to 'About', about_path %>
+         </i>
+         <i class="fas fa-user-plus" style="color: #ffffff;">
+          <%= link_to "Sing up", new_user_registration_path %>
+         </i>
+         <i class="fas fa-sign-in-alt" style="color: #ffffff;">
+          <%= link_to "Log in", new_user_session_path %>
+         </i>
+         <% end %>
+        </div>
       </nav>
-
     </header>
     <%= yield %>
   </body>
