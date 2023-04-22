@@ -2,22 +2,13 @@
 <html>
   <head>
     <style type="text/css">
-    .turbolinks-progress-bar {
-    position: fixed;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: #0076ff;
-    z-index: 9999;
-    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
-    transform: translate3d(0, 0, 0);
-  }
+    .turbolinks-progress-bar
     </style>
     <script src="https://kit.fontawesome.com/25ec70538f.js" crossorigin="anonymous"></script>
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -26,42 +17,57 @@
 
   <body>
     <header>
-      <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class= "container">
-          <a class = "navbar-brand" href = "/" >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/" >
           <span>Bookers</span>
          </a>
 
-         <div class = "container">
+         <div class="container">
            <% if user_signed_in? %>
-
-         <a class = "nav-link text-light" href = "/">
-          <i class = "fas fa-home">
-           </i>
+          <li class="fas fa-home" style="color: #ffffff;">
+            <a class="nav-link text-light" href="/">
+              Home
+            </a>
+          </li>
          </a>
 
-         <i class="fas fa-users" style="color: #ffffff;">
-          <%= link_to 'User', users_path %>
-         </i>
-         <i class="fas fa-book-open" style="color: #ffffff;">
-          <%= link_to 'Books', books_path %>
-         </i>
-         <i class="fas fa-sign-out-alt" style="color: #ffffff;">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-         </i>
+         <li class="fas fa-users" style="color: #ffffff;">
+          <a class="nav-link text-light" href="/users">
+            User
+            </a>
+         </li>
+         <li class="fas fa-book-open" style="color: #ffffff;">
+           <a class="nav-link text-light" href="/books">
+             Books
+           </a>
+         </li>
+         <li class="fas fa-sign-out-alt" style="color: #ffffff;">
+          <a class="nav-link text-light" rel="nonfollow" data-method="delete" href="/users/sign_out">
+            Sign out
+          </a>
+         </li>
          <% else %>
-         <i class="fas fa-home" style="color: #ffffff;">
-          <%= link_to 'Home', root_path %>
-         </i>
-         <i class="fas fa-link" style="color: #ffffff;">
-          <%= link_to 'About', about_path %>
-         </i>
-         <i class="fas fa-user-plus" style="color: #ffffff;">
-          <%= link_to "Sing up", new_user_registration_path %>
-         </i>
-         <i class="fas fa-sign-in-alt" style="color: #ffffff;">
-          <%= link_to "Log in", new_user_session_path %>
-         </i>
+         <li class="fas fa-home" style="color: #ffffff;">
+            <a class="nav-link text-light" href="/">
+              Home
+            </a>
+          </li>
+         <li class="fas fa-link" style="color: #ffffff;">
+          <a class="nav-link text-light" href="/homes/about">
+            About
+          </a>
+         </li>
+         <li class="fas fa-user-plus" style="color: #ffffff;">
+          <a class="nav-link text-light" href="/users/sign_up">
+            Sign up
+          </a>
+         </li>
+         <li class="fas fa-sign-in-alt" style="color: #ffffff;">
+          <a class="nav-link text-light" href="/users/sign_in">
+            Log in
+          </a>
+         </li>
          <% end %>
         </div>
       </nav>
