@@ -23,8 +23,15 @@ class BooksController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    redirect_to edit_user_path(@user.id)
+
   end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
+  end
+
 
   private
 
