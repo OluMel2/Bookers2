@@ -23,7 +23,10 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+  end
 
+  def update
+    @book = Book.find(params[:id])
   end
 
   def destroy
