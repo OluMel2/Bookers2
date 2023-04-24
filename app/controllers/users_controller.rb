@@ -13,17 +13,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
-  def show
-    @user = current_user
-    @book = @user.books
-  end
-
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
     flash[:notice] = "You have updated user successfully."
     redirect_to user_path(@user.id)
+  else
+    render :edit
+  end
   end
 
 
