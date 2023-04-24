@@ -20,9 +20,9 @@
             <div class="form-group">
               <label for="book_opinion">Opinion</label>
               <p>
-                <%= f.text_area :body, class: "form-control book_body", autofocus: true, id: "book_opinion" %>
+               <%= f.text_area :body, class: "form-control book_body", autofocus: true, id: "book_opinion" %>
               </p>
-              <%= f.submit 'Update Book', class: "btn btn-success" %>
+               <%= f.submit 'Update Book', class: "btn btn-success" %>
             </div>
             <div>
               <%= link_to "Show", book_path(@book.id) %>

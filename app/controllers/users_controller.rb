@@ -19,11 +19,19 @@ class UsersController < ApplicationController
     @book = @user.books
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
+  end
+
 
   private
 
   def book_params
     params.require(:book).permit(:title, :body, :image)
   end
-
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :introduction)
+  end
 end
