@@ -3,15 +3,13 @@
   <head>
   </head>
   <body>
-    <header>
-    </header>
     <main>
       <% if @user.errors.any? %>
       <%= @user.errors.count %>error prohibited this obj from being saved:
       <ul>
-         <% @user.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
       </ul>
       <% end %>
       <p id="notice"></p>
@@ -22,11 +20,11 @@
             <%= form_with model: @user do |f| %>
             <div class="form-group">
               <label for="inputName">Title</label>
-                <%= f.text_field :name, autofocus: true, id: "inputName", class: "form-control name" %>
+              <%= f.text_field :name, autofocus: true, id: "inputName", class: "form-control name" %>
             </div>
             <div class="form-group">
               <label for="inputImage">Image</label>
-                <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*", class: "form-control-file user_image" %>
+              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*", class: "form-control-file user_image" %>
             </div>
             <div class="form-group">
               <label for="user_introduction">Introduction</label>
@@ -41,13 +39,13 @@
       </div>
     </main>
     <footer>
-         <div class="container mt-5">
-           <div class="row">
-             <div class="mx-auto">
-               <p>CopyRight Infratop.inc</p>
-             </div>
-           </div>
-         </div>
-       </footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

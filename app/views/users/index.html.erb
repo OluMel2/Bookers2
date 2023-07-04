@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
   <body>
     <main>
       <p id="notice"></p>
@@ -12,7 +10,7 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <%= image_tag @user.get_profile_image(100,100) %>
+                 <%= image_tag @user.get_profile_image(100,100) %>
                 </tr>
                 <tr>
                   <th>name</th>
@@ -25,9 +23,9 @@
               </tbody>
             </table>
             <div class="row">
-                <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-                <i class="fas fa-user-cog"></i>
-                <% end %>
+              <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fas fa-user-cog"></i>
+              <% end %>
             </div>
             <h2 class="mt-3">New book</h2>
             <%= form_with model: Book.new do |f| %>
@@ -42,11 +40,10 @@
             <h2>Users</h2>
             <table class="table">
               <thead>
-                  <tr>
+                <tr>
                   <th>image</th>
                   <th>name</th>
                   <th colspan="3"></th>
-                  </tr>
                 </tr>
               </thead>
               <tbody>
@@ -56,7 +53,7 @@
                   <%= link_to user_path(user.id) do %>
                   <%= image_tag user.get_profile_image(100,100) %>
                   <% end %>
-                  </td>
+                </td>
                 <td><%= user.name %></td>
                 <td><%= link_to "Show", user_path(user.id) %></td>
                 <% end %>
@@ -68,13 +65,13 @@
       </div>
     </main>
     <footer>
-         <div class="container mt-5">
-           <div class="row">
-             <div class="mx-auto">
-               <p>CopyRight Infratop.inc</p>
-             </div>
-           </div>
-         </div>
-       </footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
